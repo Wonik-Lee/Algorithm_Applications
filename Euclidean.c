@@ -32,9 +32,8 @@ int gcd(int A, int B) {
 
 //recursion version
 int gcd_recursion(int A, int B) {
-    if (B == 0) { // Base case: if B is zero, the GCD is A
+    if (B == 0) // Base case: if B is zero, the GCD is A
         return A;
-    } else {
-        return gcd(B, A % B); // Recursive call with the remainder
-    }
+    else 
+        return gcd_recursion(B, A % B); // Recursive call with the remainder
 }
