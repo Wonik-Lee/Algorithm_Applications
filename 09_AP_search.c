@@ -17,7 +17,7 @@ int son_of_root = 0;
 int check[MAX_NODE] = { 0 };
 int order = 0;
 
-//¿µ¾î->¼ıÀÚ or ¼ıÀÚ->¿µ¾î Ä¡È¯ÇÔ¼ö
+//ì˜ì–´->ìˆ«ì or ìˆ«ì->ì˜ì–´ ì¹˜í™˜í•¨ìˆ˜
 int name2int(char c) {
     return c - 'A';
 }
@@ -57,19 +57,19 @@ void input_adjlist(node* a[], int* V, int* E) {
 int AP_recur(node* a[], int i)
 {
     node* t;
-    int min; // ÇöÀç Á¤Á¡(i)¸¦ ·çÆ®·Î ÇÏ´Â ¼­ºêÆ®¸® ÀüÃ¼°¡ ¿Ã¶ó°¥ ¼ö ÀÖ´Â °¡Àå ÀÛÀº Á¶»ó³ëµå
+    int min; // í˜„ì¬ ì •ì (i)ë¥¼ ë£¨íŠ¸ë¡œ í•˜ëŠ” ì„œë¸ŒíŠ¸ë¦¬ ì „ì²´ê°€ ì˜¬ë¼ê°ˆ ìˆ˜ ìˆëŠ” ê°€ì¥ ì‘ì€ ì¡°ìƒë…¸ë“œ
     int m;
-    check[i] = min = ++order;  // ¹æ¹® ¼ø¹øÀ» ÀúÀåÇÏ´Â ¹è¿­
+    check[i] = min = ++order;  // ë°©ë¬¸ ìˆœë²ˆì„ ì €ì¥í•˜ëŠ” ë°°ì—´
     for (t = a[i]; t != NULL; t = t->next) {
         if (i == 0 && check[t->vertex] == 0)
-            son_of_root++;   //·çÆ®¿¡¼­ ³»·Á°¡´Â ºĞ±â ¼ö¸¦ ¼¼´Â ¿ªÇÒ
+            son_of_root++;   //ë£¨íŠ¸ì—ì„œ ë‚´ë ¤ê°€ëŠ” ë¶„ê¸° ìˆ˜ë¥¼ ì„¸ëŠ” ì—­í• 
         if (check[t->vertex] == 0) {
             m = AP_recur(a, t->vertex);
             if (m < min) min = m;
             if (m >= check[i] && i != 0)
-                printf("* %c %2d : %d\n", int2name(i), check[i], m);   // ´ÜÀıÁ¡ Ç¥½Ã
+                printf("* %c %2d : %d\n", int2name(i), check[i], m);   // ë‹¨ì ˆì  í‘œì‹œ
             else
-                printf("  %c %2d : %d\n", int2name(i), check[i], m);   // ´ÜÀıÁ¡ ¾Æ´Ô
+                printf("  %c %2d : %d\n", int2name(i), check[i], m);   // ë‹¨ì ˆì  ì•„ë‹˜
         }
         else
             if (check[t->vertex] < min)
@@ -88,7 +88,7 @@ void AP_search(node* a[], int V)
     order = son_of_root = 0;
 
     AP_recur(a, 0);
-    if (son_of_root > 1) printf("* ");  // A°¡ ·çÆ®ÀÎµ¥ ·çÆ®µµ ÀÚ½ÄÀÌ 2 ÀÌ»óÀÌ¸é ´ÜÀıÁ¡ÀÌ´Ù.
+    if (son_of_root > 1) printf("* ");  // Aê°€ ë£¨íŠ¸ì¸ë° ë£¨íŠ¸ë„ ìì‹ì´ 2 ì´ìƒì´ë©´ ë‹¨ì ˆì ì´ë‹¤.
     else printf("  ");
     printf("%c son : %d\n", int2name(0), son_of_root);
 }
