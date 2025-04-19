@@ -6,7 +6,7 @@ int main(void)
     int V, E;
     fp = fopen("graph.txt", "rt");
     if (fp == NULL) {
-        printf("ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         return 1;
     }
 
