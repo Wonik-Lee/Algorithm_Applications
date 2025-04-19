@@ -68,17 +68,17 @@ void kruskal(edge e[], int V, int E) {
 	find_init(V);
 	pq_init();
 
-	//¿§Áö °³¼ö¸¸Å­ ÈüÀ» »ı¼º
+	//ì—£ì§€ ê°œìˆ˜ë§Œí¼ í™ì„ ìƒì„±
 	for (n = 0; n < E; n++) {
 		pq_insert(heap, n);
 	}
 
-	n = 0; // ¼±ÅÃµÇ´Â edgeÀÇ °³¼ö . ¾ó¸¸Å­ ¹æ¹®Çß´ÂÁö È®ÀÎ
+	n = 0; // ì„ íƒë˜ëŠ” edgeì˜ ê°œìˆ˜ . ì–¼ë§Œí¼ ë°©ë¬¸í–ˆëŠ”ì§€ í™•ì¸
 	while (!pq_empty()) {
-		val = pq_extract(heap); // °¡ÁßÄ¡ ³·Àº ³ëµå¸¦ °Ù
+		val = pq_extract(heap); // ê°€ì¤‘ì¹˜ ë‚®ì€ ë…¸ë“œë¥¼ ê²Ÿ
 
-		if (find_set(e[val].v1, e[val].v2, UNION)) { // °°Àº ÁıÇÕÀÌ ¾Æ´Ï¶ó¸é °°Àº ÁıÇÕÀ¸·Î ¹­¾îÁØ µÚ
-			visit(val);   //±× ¿§Áö¸¦ ¹æ¹®ÇÏ°í,
+		if (find_set(e[val].v1, e[val].v2, UNION)) { // ê°™ì€ ì§‘í•©ì´ ì•„ë‹ˆë¼ë©´ ê°™ì€ ì§‘í•©ìœ¼ë¡œ ë¬¶ì–´ì¤€ ë’¤
+			visit(val);   //ê·¸ ì—£ì§€ë¥¼ ë°©ë¬¸í•˜ê³ ,
 			n++;
 		}
 		if (n == V - 1) break;
@@ -94,7 +94,7 @@ void find_init(int elem) {
 	}
 }
 
-// °°ÀºÁıÇÕÀÎÁö ¾Æ´ÑÁö ¿©ºÎ¸¦ È®ÀÎ. °°Àº ÁıÇÕÀÌ ¾Æ´Ï¸é °°Àº ÁıÇÕÀ¸·Î ¹­¾îÁÖ±â
+// ê°™ì€ì§‘í•©ì¸ì§€ ì•„ë‹Œì§€ ì—¬ë¶€ë¥¼ í™•ì¸. ê°™ì€ ì§‘í•©ì´ ì•„ë‹ˆë©´ ê°™ì€ ì§‘í•©ìœ¼ë¡œ ë¬¶ì–´ì£¼ê¸°
 int find_set(int elem, int asso, int flag) {
 	int i = elem, j = asso;
 
@@ -105,9 +105,9 @@ int find_set(int elem, int asso, int flag) {
 		j = parent[j];
 	}
 	if (flag == UNION && i != j) {
-		union_set(i, j);           // i¿Í j°¡ ´Ù¸£´Ù¸é °°Àº ÁıÇÕÀ¸·Î ¹­¾îÁÖ±â
+		union_set(i, j);           // iì™€ jê°€ ë‹¤ë¥´ë‹¤ë©´ ê°™ì€ ì§‘í•©ìœ¼ë¡œ ë¬¶ì–´ì£¼ê¸°
 	}
-	return (i != j); //¼­·Î ´Ù¸£¸é 1À» ¹İÈ¯, °°À¸¸é 0À» ¹İÈ¯
+	return (i != j); //ì„œë¡œ ë‹¤ë¥´ë©´ 1ì„ ë°˜í™˜, ê°™ìœ¼ë©´ 0ì„ ë°˜í™˜
 }
 
 
@@ -183,7 +183,7 @@ void visit(int e) {
 	cost += Edge[e].weight;
 }
 
-// Edge ÀÔ·Â
+// Edge ì…ë ¥
 void input_edge(edge e[], int* V, int* E) {
 	char vertex[3];
 	int i, j, w;
