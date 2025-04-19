@@ -20,12 +20,12 @@ int main()
 {
 	int a, b;
 
-	printf("°öÇÒ µÎ ¼ö ÀÔ·Â : ");
+	printf("Â°Ã¶Ã‡Ã’ ÂµÃŽ Â¼Ã¶ Ã€Ã”Â·Ã‚ : ");
 	scanf("%d%d", &a, &b);
 
 	int result = a_la_russe(a, b);
 
-	printf("\n°á°ú : %d",result);
+	printf("\nÂ°Ã¡Â°Ãº : %d",result);
 
 
 	return 0;
