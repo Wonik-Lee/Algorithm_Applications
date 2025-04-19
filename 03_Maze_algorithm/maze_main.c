@@ -41,7 +41,7 @@ int main()
 		for (x = 0; x < MAZE_SIZE; x++)
 		{
 			if (x == 0) printf(" ");
-			if (maze[y][x] == 1) printf("กแ");
+			if (maze[y][x] == 1) printf("ยกรก");
 			else printf(" ");
 		}
 		printf("\n");
